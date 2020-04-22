@@ -9,8 +9,8 @@ btn.addEventListener('click', function (e) {
 	let transFeeYC = document.getElementById('transFeeYC').value;
 	let franFeeYC = document.getElementById('franFeeYC').value;
 	let insurEOFeeYC = document.getElementById('insurEOFeeYC').value;
+	let insurEOFeePercentYC = document.getElementById('insurEOFeePercentYC').value;
 
-	let grossComLYLR = document.getElementById('grossComLY').value;
 	let commissionSplitLR = document.getElementById('commissionSplitLR').value;
 	let deskFeeLR = document.getElementById('deskFeeLR').value;
 	let techFeeLR = document.getElementById('techFeeLR').value;
@@ -18,21 +18,30 @@ btn.addEventListener('click', function (e) {
 	let transFeeLR = document.getElementById('transFeeLR').value;
 	let franFeeLR = document.getElementById('franFeeLR').value;
 	let insurEOFeeLR = document.getElementById('insurEOFeeLR').value;
+	let insurEOFeePercentLR = document.getElementById('insurEOFeePercentLR').value;
 
 	// calculated variables
-	let grossComSplitYC = grossComLY*commissionSplitYC/100;
-	let grossComSplitLR = grossComLYLR*commissionSplitLR/100;
+	let newGrossComLYLR = Math.round(grossComLY/(commissionSplitYC/100));
+	let grossComSplitLR = newGrossComLYLR*commissionSplitLR/100;
 	let totTransFeeYC = numTransLY*transFeeYC*1;
 	let totTransFeeLR = numTransLYLR*transFeeLR*1;
+	let totFranFeeYC = (franFeeYC/100)*grossComLY;
+	let totinsEOFeeYC = insurEOFeeYC*numTransLY*1;
+	let totinsEOFeeLR = insurEOFeeLR*numTransLYLR*1;
+	let totinsEOPercentFeeYC = (insurEOFeePercentYC/100)*grossComLY;
+	let totinsEOPercentFeeLR = (insurEOFeePercentLR/100)*newGrossComLYLR;
 	let totFeesYC = (deskFeeYC*12)+(techFeeYC*12)+(totTransFeeYC*1)+
-	(franFeeYC*12)+(numTransLY*insurEOFeeYC*1);
-	let totFeesLR = (deskFeeLR*1)+(techFeeLR*12)+(totTransFeeLR*1)+
-	(franFeeLR*12)+(numTransLY*insurEOFeeLR*1);
-	let netComYC = grossComSplitYC-totTransFeeYC;
-	let netComLR = grossComSplitLR-totFeesLR+totTransFeeLR;
+	(totFranFeeYC)+totinsEOFeeYC+totinsEOPercentFeeYC;
+	let totFeesLR = (deskFeeLR*1)+(techFeeLR*12)+(franFeeLR*12)+
+	totinsEOFeeLR*1+totinsEOPercentFeeLR*1;
+	let netComYC = Math.round(grossComLY-totFeesYC);
+	let netComLR = Math.round(grossComSplitLR-totFeesLR+totTransFeeLR);
 
-	totalFeesYC.innerHTML = 'Total Fees: $ '+ (totFeesYC)
-	totalFeesLR.innerHTML = 'Total Fees: $ '+ (totFeesLR)+'*'
+
+	document.getElementById("grossComLYLR").value = newGrossComLYLR;
+	document.getElementById("numTransLYLR").value = numTransLY;
+	totalFeesYC.innerHTML = 'Total Fees: $ '+ (totFeesYC);
+	totalFeesLR.innerHTML = 'Total Fees: $ '+ (totFeesLR)+'*';
 	summarytotal.innerHTML = 'Summary:';
 	otherIncome.innerHTML = 'Net Income With Your Company: $' + (netComYC);
 	larosaIncome.innerHTML = 'Net Income With La Rosa North Florida: $' + (netComLR);
