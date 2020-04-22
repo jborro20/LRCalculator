@@ -21,7 +21,7 @@
 			display: table;
 			clear: both;
 		}
-		@media only screen 
+		@media only screen
 			and (min-device-width: 375px) 
   			and (max-device-width: 812px) 
   			and (-webkit-min-device-pixel-ratio: 3)
@@ -45,28 +45,30 @@
 					<div class="row">
 						<div class="column">
 							<div class="card-header"><h4>Your Current Broker<br> </h4></div><br>
-							<p data-tooltip="Enter your gross GCI from last year">Gross Commission Last Year<input type="number" class="form-control" min="0" step="100" id="grossComLY"></p>
-							<p>Your Commission Split (%)<input type="number" class="form-control" min="0" step="0.01" id="commissionSplitYC"></p>
+							<p>Gross Commission Last Year<input type="number" class="form-control" min="1" id="grossComLY" required></p>
+							<p>Your Commission Split (%)<input type="number" class="form-control" min="0" step="0.01" id="commissionSplitYC" required></p>
 							<h5>Less</h5>
 							<p>Desk Fee (Monthly)<input type="number" class="form-control" min="0" step="1" id="deskFeeYC"></p>
 							<p>Technology Fee (Monthly)<input type="number" class="form-control" min="0" step="1" id="techFeeYC"></p>
 							<p># of Transactions Last Year<input type="number" class="form-control" min="0" step="1" id="numTransLY"></p>
 							<p>Transaction Fee<input type="number" class="form-control" min="0" step="1" id="transFeeYC"></p>
-							<p>Franchise Fee (Monthly)<input type="number" class="form-control" min="0" step="1" id="franFeeYC"></p>
-							<p>Errors and Commission Insurance Fee (per Transaction)<input type="number" class="form-control" min="0" step="1" id="insurEOFeeYC"></p>	
+							<p>Franchise Fee (% of GCI)<input type="number" class="form-control" min="0" step="1" id="franFeeYC"></p>
+							<p>Errors and Commission Insurance Fee (per Transaction)<input type="number" class="form-control" min="0" step="1" id="insurEOFeeYC"></p>
+							<p>Errors and Commission Fee (% of Transaction)<input type="number" class="form-control" min="0" step="1" id="insurEOFeePercentYC"></p>
 							<h5 id="totalFeesYC">Total Fees: $ </h5>
 						</div>
 						<div class="column">
 							<div class="card-header"><h4>La Rosa Realty North Florida</h4></div><br>
-							<p>Gross Commission Last Year<input type="number" class="form-control" value="grossComLY" readonly="true" id="grossComLYLR"></p>
+							<p>Gross Commission Last Year<input type="number" class="form-control" readonly= "true" id="grossComLYLR"></p>
 							<p>Your Commission Split (%)<input type="number" class="form-control" value="100" readonly="true" id="commissionSplitLR"></p>
 							<h5>Less</h5>
 							<p>Desk Fee (Annual)<input type="number" class="form-control" value="100" readonly="true" id="deskFeeLR"></p>
 							<p>Technology Fee (Monthly)<input type="number" class="form-control" value="50" readonly="true" id="techFeeLR"></p>
 							<p># of Transactions Last Year<input type="number" class="form-control" value="numTransLY" readonly="true" id="numTransLYLR"></p>
 							<p>Transaction Fee*<input type="number" class="form-control" value="395" readonly="true" id="transFeeLR"></p>
-							<p>Franchise Fee (Monthly)<input type="number" class="form-control" value="0" readonly="true" id="franFeeLR"></p>
+							<p>Franchise Fee (% of GCI)<input type="number" class="form-control" value="0" readonly="true" id="franFeeLR"></p>
 							<p>Errors and Commission Insurance Fee (per Transaction)<input type="number" class="form-control" value="0" readonly="true" id="insurEOFeeLR"></p>	
+							<p>Errors and Commission Fee (% of Transaction)<input type="number" class="form-control" value="0" readonly="true" id="insurEOFeePercentLR"></p>
 							<h5 id="totalFeesLR">Total Fees: $ </h5>
 						</div>
 					</div>
@@ -82,14 +84,11 @@
 					Calculate Income Comparison</button>
 					<button type="button" class="btn btn-outline-primary" id="btn" onclick="window.location.href = 'https://larosainfo.com/contact-2/';">
 					Contact Us For More Info</button>
-				</div>
-				
-			</div>
-			
+				</div>	
+			</div>	
 		</div>
 	</main>
 	<script src="calcLR3.js"></script>
-
 </body>
 </html>
 
