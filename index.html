@@ -46,15 +46,14 @@
 						<div class="column">
 							<div class="card-header"><h4>Your Current Broker<br> </h4></div><br>
 							<p>Gross Commission Last Year<input type="number" class="form-control" min="1" id="grossComLY" required></p>
-							<p>Your Commission Split (%)<input type="number" class="form-control" min="0" step="0.01" id="commissionSplitYC" required></p>
+							<p>Your Commission Split (%)*<input type="number" class="form-control" min="0" step="0.01" id="commissionSplitYC" required></p>
 							<h5>Less</h5>
 							<p>Desk Fee (Monthly)<input type="number" class="form-control" min="0" step="1" id="deskFeeYC"></p>
 							<p>Technology Fee (Monthly)<input type="number" class="form-control" min="0" step="1" id="techFeeYC"></p>
 							<p># of Transactions Last Year<input type="number" class="form-control" min="0" step="1" id="numTransLY"></p>
 							<p>Transaction Fee<input type="number" class="form-control" min="0" step="1" id="transFeeYC"></p>
 							<p>Franchise Fee (% of GCI)<input type="number" class="form-control" min="0" step="1" id="franFeeYC"></p>
-							<p>Errors and Commission Insurance Fee (per Transaction)<input type="number" class="form-control" min="0" step="1" id="insurEOFeeYC"></p>
-							<p>Errors and Commission Fee (% of Transaction)<input type="number" class="form-control" min="0" step="1" id="insurEOFeePercentYC"></p>
+							<p>Errors and Ommission Insurance Fee (per Transaction)<input type="number" class="form-control" min="0" step="1" id="insurEOFeeYC"></p>
 							<h5 id="totalFeesYC">Total Fees: $ </h5>
 						</div>
 						<div class="column">
@@ -65,10 +64,9 @@
 							<p>Desk Fee (Annual)<input type="number" class="form-control" value="100" readonly="true" id="deskFeeLR"></p>
 							<p>Technology Fee (Monthly)<input type="number" class="form-control" value="50" readonly="true" id="techFeeLR"></p>
 							<p># of Transactions Last Year<input type="number" class="form-control" value="numTransLY" readonly="true" id="numTransLYLR"></p>
-							<p>Transaction Fee*<input type="number" class="form-control" value="395" readonly="true" id="transFeeLR"></p>
+							<p>Transaction Fee**<input type="number" class="form-control" value="395" readonly="true" id="transFeeLR"></p>
 							<p>Franchise Fee (% of GCI)<input type="number" class="form-control" value="0" readonly="true" id="franFeeLR"></p>
-							<p>Errors and Commission Insurance Fee (per Transaction)<input type="number" class="form-control" value="0" readonly="true" id="insurEOFeeLR"></p>	
-							<p>Errors and Commission Fee (% of Transaction)<input type="number" class="form-control" value="0" readonly="true" id="insurEOFeePercentLR"></p>
+							<p>Errors and Ommission Insurance Fee (per Transaction)<input type="number" class="form-control" value="0" readonly="true" id="insurEOFeeLR"></p>	
 							<h5 id="totalFeesLR">Total Fees: $ </h5>
 						</div>
 					</div>
@@ -78,7 +76,8 @@
 						<p id="larosaIncome"></p>
 						<p id="otherIncome"></p>
 						<p><h5 id="incomeDifference"></h5></p><br>
-						<p id="noteLR"></p>
+						<p>*Commission split examples: For 70/30 split, enter 70. &nbsp For .002 x sales price, enter 93.5.</p>
+						<p id="noteLR">**Transaction Fee at La Rosa North Florida is paid by the customer</p>
 					</div>
 					<button type="button" class="btn btn-outline-primary" id="btn">
 					Calculate Income Comparison</button>
